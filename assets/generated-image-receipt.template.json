@@ -1,0 +1,8 @@
+{
+  "status": "success",
+  "plan_id": "替换实际计划ID",
+  "session_id": "替换当前会话唯一ID",
+  "tool_id": "替换实际调用的工具ID",
+  "output_sha256": "替换真实产物SHA256",
+  "tool_call_reference": "替换实际成功工具调用记录的位置；失败不能写success"
+}

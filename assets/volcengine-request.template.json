@@ -1,0 +1,15 @@
+{
+  "speaker": "YOUR_SPEAKER_ID",
+  "resource_id": "seed-icl-2.0",
+  "segments": [
+    {"text": "替换为已经确认的第一句字幕。"},
+    {"text": "这句展示原数字3。", "spoken_text": "这句展示原数字三。"}
+  ],
+  "audio_params": {
+    "format": "mp3",
+    "sample_rate": 24000,
+    "speech_rate": 0,
+    "loudness_rate": 0,
+    "enable_timestamp": true
+  }
+}

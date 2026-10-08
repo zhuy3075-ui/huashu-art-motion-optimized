@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "character_id": "my-character",
+  "name": "替换为用户角色名称",
+  "aliases": [],
+  "summary": "替换为该角色在本项目中的用途",
+  "identity": {
+    "preserve": [],
+    "allowed_changes": [],
+    "forbidden_changes": [],
+    "unknown": []
+  },
+  "assets": [
+    {"id": "master", "role": "master", "file": "替换为实际母版路径.png", "notes": "仅为占位示例，不是已导入素材"}
+  ],
+  "actions": [],
+  "approval": {"status": "draft", "reference": ""},
+  "sample_review": {"status": "not_reviewed", "reference": "", "scope": "static"}
+}

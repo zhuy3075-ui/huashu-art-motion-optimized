@@ -1,0 +1,10 @@
+{
+  "voiceId": "YOUR_VOICE_ID",
+  "text": "替换为用户已经批准的实际文案片段",
+  "emotion": "替换为所选音色实时支持的情绪；单情绪可删除此字段",
+  "language": "zh",
+  "audioPitch": 1.0,
+  "audioSpeed": 1.0,
+  "audioVolume": 0,
+  "fileFormat": "wav"
+}

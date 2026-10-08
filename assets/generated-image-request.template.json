@@ -1,0 +1,8 @@
+{
+  "prompt": "替换为已确定的具体图片要求、角色身份保留项、画风与目标动作",
+  "operation": "edit",
+  "references": ["替换为用户已授权用于本次改图的实际母版路径.png"],
+  "transparent_background": true,
+  "min_width": 512,
+  "min_height": 512
+}

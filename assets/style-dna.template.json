@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "style_id": "my-style",
+  "name": "待命名风格",
+  "aliases": [],
+  "summary": "风格草稿：尚未读取素材、确认或验证。",
+  "origin": {
+    "kind": "author_defined",
+    "references": []
+  },
+  "evidence": [],
+  "dna": {
+    "identity": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "palette": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "value_contrast": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "shape_language": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "linework": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "materials": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "lighting": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "composition": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "space_camera": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "characters": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "objects_background": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "typography": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "motion": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "transitions": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "postprocessing": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    },
+    "consistency": {
+      "status": "unknown",
+      "description": "待依据素材或用户明确偏好分析；当前没有结论。",
+      "rules": [],
+      "avoid": [],
+      "evidence_ids": [],
+      "confidence": "unknown"
+    }
+  },
+  "prompts": {
+    "style_only": "",
+    "image_template": "",
+    "motion_template": "",
+    "avoid": [],
+    "notes": [
+      "根据已确认规则填写；动作未知时motion_template留空。"
+    ]
+  },
+  "implementation": {
+    "route": "undecided",
+    "code_mapping": [],
+    "asset_requirements": [],
+    "limitations": [
+      "尚未检查当前工具能否实现该风格。"
+    ]
+  },
+  "reuse": {
+    "locked_dimensions": [],
+    "adaptable_dimensions": [],
+    "content_exclusions": [],
+    "conflict_policy": "冲突时展示具体取舍，沿用明确的本片覆盖指令；不静默改全局档案。"
+  },
+  "approval": {
+    "state": "draft",
+    "statement": "",
+    "reference": ""
+  },
+  "validation": {
+    "state": "untested",
+    "samples": [],
+    "checks": [],
+    "known_gaps": [
+      "缺少实际参考、用户定义和视觉验证。"
+    ]
+  }
+}
