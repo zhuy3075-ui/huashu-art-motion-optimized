@@ -2,7 +2,7 @@
 
 <img src="assets/showcase/hero.png" alt="huashu-art-motion电影画廊：35种艺术风格，9种解说语法" width="100%" />
 
-# huashu-art-motion · 艺术动画
+# huashu-art-motion-optimized · 艺术动画优化版
 
 让你的coding agent，把艺术风格写成会动的画。
 
@@ -12,7 +12,7 @@
 npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 ```
 
-[看动画](#动画样片) · [看风格](#看效果) · [开始使用](#里面有什么) · [下载完整样片](https://github.com/alchaincyf/huashu-art-motion/releases/latest)
+[来源与致谢](#原作者与上游来源) · [变更说明](#相对上游的变更说明) · [看动画](#动画样片) · [看风格](#看效果) · [开始使用](#里面有什么) · [下载完整样片](https://github.com/alchaincyf/huashu-art-motion/releases/latest)
 
 </div>
 
@@ -20,7 +20,34 @@ npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 
 基于[花叔原版](https://github.com/alchaincyf/huashu-art-motion)的独立优化版，保留原作者归属和许可证；新增逐步需求/全文确认、详细Style DNA、用户素材/角色库、火山逐字字幕与DubbingX可选配音，以及生图验收、按需能力检查和分范围偏好。上方命令安装本仓库；预发布验证版本位于pre-release分支，安装时可将来源写成`https://github.com/zhuy3075-ui/huashu-art-motion-optimized/tree/pre-release`。运行需Python3.11+，图片工具建议使用uv声明依赖。全局私人config在安装目录外，升级不重置用户档案。
 
+## 原作者与上游来源
+
+特别感谢 **花叔 Huashu（[@AlchainHust](https://x.com/AlchainHust)，GitHub：[@alchaincyf](https://github.com/alchaincyf)）** 开源 [huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion)。原项目提供了本仓库继承的代码动画引擎、35种艺术风格配方、9种解说语法、示范素材与创作方法。
+
+本仓库是在原项目基础上持续维护的独立优化版，主要围绕需求引导、内容确认、个人风格与角色复用，以及媒体调用流程做补充。原作者的代码、文档和示范贡献归原作者；本版新增与借鉴部分在下面逐项说明，原LICENSE和字体、笔顺数据、角色示范的许可边界继续保留。
+
+## 相对上游的变更说明
+
+| 类型 | 本版变更 | 说明与入口 |
+|---|---|---|
+| 继承上游 | 代码动画引擎、35种画风、9种解说语法、示范片与原有QA方法 | 来自花叔原项目；保留源码、归属和许可，不计作本版新增 |
+| 本版新增 | 逐步需求发现与完整文案确认 | 根据素材给参考并追问；简报、大纲、全文、分镜与样片逐步确认，已有明确授权直接沿用。[00号](references/00-需求引导与确认.md) |
+| 本版新增 | 详细Style DNA与个人风格库 | 16维度规则、证据/未知项、提示词与实现映射；本地名称、别名、版本保存及复用。[13号](references/13-Style-DNA与本地风格库.md) |
+| 本版新增 | 用户素材与个人角色库 | 原件保留、用途确认、母版身份约束、真实动作与版本；静帧/动作认可分别记录。[15号](references/15-用户素材与角色库.md) |
+| 本版修改 | 透明素材处理与动作切帧 | 保留RGBA与半透明边缘，显式4×2八帧和来源坐标，脚底锚点需样稿核对。[素材工具](references/15-用户素材与角色库.md#透明图与动作帧工具) |
+| 本版新增 | 火山异步配音及字幕时间轴 | 保留实际词表，导出MP3、原文SRT与镜头节拍；文案/读法不匹配时停止，不按字数估时。[14号](references/14-火山TTS与逐字字幕.md) |
+| 本版新增 | DubbingX可选配音及音色历史 | 云端音色查询、异步生成/恢复/下载、成功历史；其音频需另做实际字幕对齐。[16号](references/16-DubbingX异步配音与音色历史.md) |
+| 借鉴并适配上游 | 生图计划与产物验收、按需能力检查、分范围偏好 | 参考上游[f178bd7](https://github.com/alchaincyf/huashu-art-motion/commit/f178bd7754a71d6d399473af1501634548efa6cb)，适配本版两平台配音、角色/DNA流程与现有config；技术验收后仍视觉待审。[17号](references/17-能力检查生图验收与偏好.md) |
+
+普通一次选择仅作用本次，用户明确“记住/以后默认”才写长期偏好；私人配置、音色、提示词与原素材存安装目录外，不随公开仓库分发。完整修改记录见[CHANGELOG](CHANGELOG.md)。
+
+截至2026-10-09，最近一次代码验证为200项单测、7次离线CLI检查及两名独立核验通过。它们验证的是文件、参数与流程契约，真实配音听感、角色身份和生图质量仍需实际样稿评审。
+
+上游最新[57d6760：Windows渲染/QA并发加载修复](https://github.com/alchaincyf/huashu-art-motion/commit/57d67608ab458f57d9b153b1a2831b921e22498b)尚未合入本版；本仓库没有完整移植上游系统配音、音色训练、补配拟合和发布门禁。后续按具体目标同步与验证，不将借鉴机制描述为全部原创，也不将本版标为与上游全功能一致。
+
 ## 动画样片
+
+下列动画样片、风格总览及花叔角色示范沿用原作者的上游展示资源，用于展示原有代码动画体系；素材使用范围见[许可证](#许可证)。
 
 画里真的会动。下面三段来自同一支穿越短片，场景用代码画，角色用生成帧合成。
 
@@ -199,7 +226,9 @@ uv run --with playwright python scripts/engine/render.py --spec scripts/engine/e
 
 ---
 
-## 背后的故事
+## 原作者的项目故事
+
+以下保留花叔对原项目的创作经历，第一人称叙述指原作者；本优化版的开发范围见上方变更说明。
 
 2026 年 10 月初，我在 X 上看到 Tak（[@cherry_mx_reds](https://x.com/cherry_mx_reds/status/2106095190285144331)）的一支 15 秒动画：一位少女和一只猫穿过 40000 年艺术史，每个时代只有一秒左右，但画里的东西都在动。
 
@@ -211,13 +240,14 @@ uv run --with playwright python scripts/engine/render.py --spec scripts/engine/e
 
 ## 致谢
 
+- **花叔 Huashu（[@AlchainHust](https://x.com/AlchainHust)）**：感谢原项目的代码、风格配方、解说语法、示范及方法论，以及后续媒体能力机制；[上游仓库](https://github.com/alchaincyf/huashu-art-motion)是本优化版的来源。
 - **Tak（[@cherry_mx_reds](https://x.com/cherry_mx_reds)）** 的《Art History Speedrun》是这个 skill 的起点。16 个艺术时代的场景构图和「少女＋猫穿越」的设定沿用了原片的思路，画面全部用代码重新画，配乐脚本里是原创示例乐谱（只保留拆解方法，不保留对原曲的转录）；仓库里不含原片的帧、截图或音频文件。想看原作请去他的 X。
 - 解说语法卡里拆解过的频道和资料（Kurzgesagt、Vox、3Blue1Brown、RSA Animate、TheOdd1sOut 等）都在各张卡的「一手参考」里给了链接，仓库只记测量出来的参数，不含他们的画面。
 - 字体都是 SIL OFL 1.1 开源字体，清单和版权见 `scripts/engine/lib/fonts/LICENSES.md`。
 
 ---
 
-## 关于作者
+## 关于原作者
 
 | | |
 |:---|:---|
@@ -256,6 +286,8 @@ MIT License © [花叔 Huashu](https://github.com/alchaincyf)
 ---
 
 ## English
+
+This repository is an independently maintained adaptation of [Huashu’s original huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion). Credit for the inherited animation engine, style recipes, demo assets and original methods belongs to Huashu. This edition adds guided discovery and script approval, personal Style DNA and character libraries, and async voice/subtitle workflows; its media planning and preference mechanisms are adapted from upstream. See the change table above and CHANGELOG for attribution and implementation scope. Original license notices and demo-asset restrictions remain in place.
 
 **huashu-art-motion** is an agent skill for making animation with code, where the paintings actually move. It ships 35 art-style recipes (cave painting, Egyptian murals, Van Gogh, Klimt, Bauhaus, Kirby comics, 8-bit, vaporwave, Shinkai and more), each with a working Canvas scene, a style "renderer" and a signature transition; 8 explainer-video grammars (Kurzgesagt, Vox, whiteboard, storytime, kinetic type, 3Blue1Brown, keynote UI, finance charts) with demo films and parameterized clips you drive with a JSON spec, frame-accurate and in landscape, portrait or alpha; a long-scroll skeleton where a character walks left to right through one painting after another (3 sample worlds included); plus a breakdown script that maps a reference animation into cuts, beat grid and motion heatmaps, and a QA script that measures stability, cost per frame, motion and smoothness.
 
