@@ -18,7 +18,7 @@ npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 
 ## 这个优化版
 
-基于[花叔原版](https://github.com/alchaincyf/huashu-art-motion)的独立优化版，保留原作者归属和许可证；新增逐步需求/全文确认、详细Style DNA、用户素材/角色库、火山逐字字幕与DubbingX可选配音，以及生图验收、按需能力检查和分范围偏好。上方命令安装本仓库；预发布验证版本位于pre-release分支，安装时可将来源写成`https://github.com/zhuy3075-ui/huashu-art-motion-optimized/tree/pre-release`。运行需Python3.11+，图片工具建议使用uv声明依赖。全局私人config在安装目录外，升级不重置用户档案。
+基于[花叔原版](https://github.com/alchaincyf/huashu-art-motion)的独立优化版，保留原作者归属和许可证；新增逐步需求/全文确认、详细Style DNA、用户素材/角色库、火山逐字字幕与DubbingX可选配音，以及生图验收、按需能力检查、分范围偏好和批量创作队列。面向Codex GPT-6系列补充按阶段调用的提示词与实际确认问法。上方命令安装本仓库；预发布验证版本位于pre-release分支，安装时可将来源写成`https://github.com/zhuy3075-ui/huashu-art-motion-optimized/tree/pre-release`。运行需Python3.11+，图片工具建议使用uv声明依赖。全局私人config在安装目录外，升级不重置用户档案。
 
 ## 原作者与上游来源
 
@@ -37,11 +37,13 @@ npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 | 本版修改 | 透明素材处理与动作切帧 | 保留RGBA与半透明边缘，显式4×2八帧和来源坐标，脚底锚点需样稿核对。[素材工具](references/15-用户素材与角色库.md#透明图与动作帧工具) |
 | 本版新增 | 火山异步配音及字幕时间轴 | 保留实际词表，导出MP3、原文SRT与镜头节拍；文案/读法不匹配时停止，不按字数估时。[14号](references/14-火山TTS与逐字字幕.md) |
 | 本版新增 | DubbingX可选配音及音色历史 | 云端音色查询、异步生成/恢复/下载、成功历史；其音频需另做实际字幕对齐。[16号](references/16-DubbingX异步配音与音色历史.md) |
+| 本版新增 | 批量创作与阶段调用 | 多选题、共享/单项配置、各支独立确认、实际产物哈希、串行领取与失败续做；由Codex调用现有制作工具。[18号](references/18-批量创作与调用.md) |
+| 本版补充 | Codex GPT-6系列提示词与确认问法 | 需求、内容、个人资产、媒体和批量调用提示词；按阶段展示实际产物并提出确认问题，不自动切模型或宣称跨模型性能提升。[19号](references/19-Codex提示词与阶段确认.md) |
 | 借鉴并适配上游 | 生图计划与产物验收、按需能力检查、分范围偏好 | 参考上游[f178bd7](https://github.com/alchaincyf/huashu-art-motion/commit/f178bd7754a71d6d399473af1501634548efa6cb)，适配本版两平台配音、角色/DNA流程与现有config；技术验收后仍视觉待审。[17号](references/17-能力检查生图验收与偏好.md) |
 
 普通一次选择仅作用本次，用户明确“记住/以后默认”才写长期偏好；私人配置、音色、提示词与原素材存安装目录外，不随公开仓库分发。完整修改记录见[CHANGELOG](CHANGELOG.md)。
 
-截至2026-10-09，最近一次代码验证为200项单测、7次离线CLI检查及两名独立核验通过。它们验证的是文件、参数与流程契约，真实配音听感、角色身份和生图质量仍需实际样稿评审。
+截至2026-10-09，本次批量更新已通过233项单测（新增33项队列测试）、55次离线CLI调用、技能格式/47个本地链接检查及独立代码/行为核验；真实双进程领取检查也通过。媒体能力更新此前另做过7次离线CLI检查。它们验证的是文件、参数与流程契约，真实配音听感、角色身份和批量成片质量仍需实际样稿评审。
 
 上游最新[57d6760：Windows渲染/QA并发加载修复](https://github.com/alchaincyf/huashu-art-motion/commit/57d67608ab458f57d9b153b1a2831b921e22498b)尚未合入本版；本仓库没有完整移植上游系统配音、音色训练、补配拟合和发布门禁。后续按具体目标同步与验证，不将借鉴机制描述为全部原创，也不将本版标为与上游全功能一致。
 
@@ -94,6 +96,7 @@ npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 | 你说 | 它做 |
 |---|---|
 | 「分析这些关键帧的style dna」「把我的风格保存下来」「用我已存的纸纹手绘风格」 | 提取16维度规则、证据与提示词，确认后存本地config，按名称/别名/版本复用 |
+| 「批量做这些选题」「按我的风格和角色做系列」「继续上次批量创作」 | 建立本地任务队列，复用共享配置、保留单项例外；逐阶段给实际版本并提问确认，串行调用工具、保存进度与失败续做 |
 | 「用我的自定义音色配音」「列出以前用过的音色」 | 先确定火山或DubbingX，必问自定义音色及具体ID，展示所选平台候选与历史；火山输出音频和真实时间轴/SRT，DubbingX生成音频后另做字幕对齐 |
 | 「复刻这个动画」「拆一下这段」 | 先跑拆解脚本量出转场、节拍网格、每段运动热图，再按机制用代码复刻 |
 | 「做个梵高／莫奈／包豪斯那种的动画」 | 先设计一帧，再让它动起来；35张风格配方卡当起点 |
@@ -104,6 +107,21 @@ npx skills add zhuy3075-ui/huashu-art-motion-optimized --skill huashu-art-motion
 | 「配个乐、卡节奏」 | BPM 网格、动机换乐器、结尾音效序列，纯代码合成 |
 
 交付前有一道数字验收：`qa.py` 量稳定、效率、动感、流畅及文字框景线索，再派一个没参与制作的 agent 只看成片挑问题。
+
+## 批量创作与提示词调用
+
+一次提供多个选题即可，例如：“把这三篇素材做成一个系列，共用我已存的纸纹风格和角色；先给三份文案逐项确认。”技能先确认任务清单和共用配置，再为每支片子保存简报、大纲、实际全文、分镜、声音、样片和候选整片的独立版本。可以一次确认明确展示的多份同阶段产物；未确认的内容保持待审。
+
+批量工具保存任务、产物快照、哈希和进度；失败保留原操作引用，恢复优先查询原媒体任务，不自动再次付费。一个条目待确认或已核对确定失败终态时可以处理其他条目；状态未知的在途操作先恢复。共享配置只留本项目，平台切换不继承另一平台的音色ID。由当前Codex会话按队列调用既有脚本；本地队列本身不联网、不生成视频，也不在后台自动运行。
+
+[批量方法与CLI](references/18-批量创作与调用.md) · [输入模板](assets/batch-creation.template.json) · [队列工具](scripts/batch_creation.py) · [阶段提问与调用提示词](references/19-Codex提示词与阶段确认.md)。提示词参考[OpenAI GPT-6 Astra技能指导](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)，采用按需读取和明确完成条件；目前没有GPT-6系列跨模型质量/速度测评。
+
+```sh
+python scripts/batch_creation.py --project "我的系列工程" init --file "我的系列工程/选题清单.json"
+python scripts/batch_creation.py --project "我的系列工程" status
+python scripts/batch_creation.py --project "我的系列工程" next
+python -m unittest discover -s scripts/tests -p 'test_batch_creation.py'
+```
 
 ## 保存与调用自己的风格
 

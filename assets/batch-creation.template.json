@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "name": "我的系列动画",
+  "defaults": {
+    "style_ref": "",
+    "character_ref": "",
+    "voice": {"provider": "unconfigured"},
+    "notes": "以下选题仅为模板；填写真实素材、受众和规格后使用。"
+  },
+  "jobs": [
+    {"id": "episode-one", "topic": "第一个选题与素材位置", "settings": {}},
+    {"id": "episode-two", "topic": "第二个选题与素材位置", "settings": {}}
+  ]
+}
